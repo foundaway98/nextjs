@@ -1,7 +1,6 @@
 import Seo from "../components/Seo";
 
 export default function Home({ results }) {
-  console.log(results);
   return (
     <div className="container">
       <Seo title="Home" />
@@ -42,7 +41,7 @@ export async function getServerSideProps() {
   ).json();
   return {
     props: {
-      results,
+      results: JSON.parse(JSON.stringify(results)),
     },
   };
 }
